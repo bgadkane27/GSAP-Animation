@@ -17,7 +17,8 @@ gsap.to("#page3 #box3",{
 })
 
 gsap.from("#page2 h2",{
-    x:1000,
+    // x:1000,
+    transform:'translateX(150%)',
     duration:2,
     // color: "blue", 
     // ease:'elastic.out',
@@ -26,8 +27,32 @@ gsap.from("#page2 h2",{
         scroller: "body",
         // markers:true,
         start: "top 40%",
-        end:"top 90%",
-        x:200,        
+        end:"bottom -20%",        
     }
+})
+
+function breakTheText(){
+    var head=document.querySelector('#head')
+    var text=head.textContent
+    var spiltedText=text.split("")
+    
+    var clutter=""
+    spiltedText.forEach(function(elem){
+        clutter += `<span>${elem}</span>`
+    })
+    
+    head.innerHTML=clutter
+}
+
+breakTheText()
+
+gsap.from('h2 span', {
+    y:100,
+    opacity: 0,
+    duration:1,
+    delay:0.5,
+    stagger:0.3,
+    repeat:-1,
+    repeatDelay:0.2
 })
 
