@@ -31,16 +31,49 @@ gsap.from("#page2 h2",{
     }
 })
 
+// function breakTheText(){
+//     var head=document.querySelector('#head')
+//     var text=head.textContent
+//     var spiltedText=text.split("")
+
+//     var length=spiltedText.length/2
+    
+//     var clutter=""
+//     spiltedText.forEach(function(elem){
+//         clutter += `<span>${elem}</span>`
+//     })
+    
+//     head.innerHTML=clutter
+// }
+
+// breakTheText()
+
+// gsap.from('h2 span', {
+//     y:150,
+//     opacity: 0,
+//     duration:1,
+//     delay:0.6,
+//     stagger:0.3,
+//     repeat:-1,
+//     repeatDelay:0.2
+// })
+
+
 function breakTheText(){
     var head=document.querySelector('#head')
     var text=head.textContent
     var spiltedText=text.split("")
-
     var length=spiltedText.length/2
     
     var clutter=""
-    spiltedText.forEach(function(elem){
-        clutter += `<span>${elem}</span>`
+    spiltedText.forEach(function(elem, id){
+        if(id<length){
+            clutter += `<span class="start">${elem}</span>`
+        }
+        else{
+            clutter += `<span class="end">${elem}</span>`
+        }
+        
     })
     
     head.innerHTML=clutter
@@ -48,7 +81,7 @@ function breakTheText(){
 
 breakTheText()
 
-gsap.from('h2 span', {
+gsap.from('.start', {
     y:150,
     opacity: 0,
     duration:1,
@@ -58,4 +91,14 @@ gsap.from('h2 span', {
     repeatDelay:0.2
 })
 
+
+gsap.from('.end', {
+    y:150,
+    opacity: 0,
+    duration:1,
+    delay:0.9,
+    stagger:-0.3,
+    repeat:-1,
+    repeatDelay:0.2
+})
 
