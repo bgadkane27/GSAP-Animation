@@ -51,6 +51,7 @@
 #head{
     font-size: 10vw;
     color:lightcoral;
+    overflow: hidden;
 }
 
 h2 span{

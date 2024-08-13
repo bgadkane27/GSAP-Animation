@@ -35,6 +35,8 @@ function breakTheText(){
     var head=document.querySelector('#head')
     var text=head.textContent
     var spiltedText=text.split("")
+
+    var length=spiltedText.length/2
     
     var clutter=""
     spiltedText.forEach(function(elem){
@@ -47,12 +49,13 @@ function breakTheText(){
 breakTheText()
 
 gsap.from('h2 span', {
-    y:100,
+    y:150,
     opacity: 0,
     duration:1,
-    delay:0.5,
+    delay:0.6,
     stagger:0.3,
     repeat:-1,
     repeatDelay:0.2
 })
+
 
